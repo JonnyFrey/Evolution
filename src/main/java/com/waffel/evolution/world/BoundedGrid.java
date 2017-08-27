@@ -1,6 +1,7 @@
 package com.waffel.evolution.world;
 
 import com.google.common.collect.Range;
+import lombok.Getter;
 import lombok.NonNull;
 
 import javax.annotation.Nonnull;
@@ -15,12 +16,13 @@ import static com.google.common.base.Preconditions.checkNotNull;
 
 public class BoundedGrid<E> {
 
+    @Getter
     private Location<E>[][] occupantArray; // the array storing the grid elements
     private static final Random RANDOM = new Random();
 
     public BoundedGrid(final int rows, final int cols) {
-        checkArgument(rows <= 0, "Rows must be positive (found:%s)", rows);
-        checkArgument(cols <= 0, "Rows must be positive (found:%s)", cols);
+        checkArgument(rows > 0, "Rows must be positive (found:%s)", rows);
+        checkArgument(cols > 0, "Rows must be positive (found:%s)", cols);
         //noinspection unchecked
         occupantArray = new Location[rows][cols];
         for (int r = 0; r < rows; r++) {
