@@ -1,0 +1,43 @@
+# Mac files
+*.DS_Store
+
+# file ignores
+*.log
+nohup.out
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# build files
+*.class
+/build/
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+# Eclipse Stuff
+.classpath
+.project
+.settings
+
+# Intellij Stuff
+.idea
+*.iml
+*.ipr
+*.iws
+
+# gradle stuff
+/.gradle/
+!gradle/wrapper/gradle-wrapper.jar
+!gradle/wrapper/gradle-wrapper.properties
+/.gradletasknamecache
+
+# cobertura stuff
+target/
+
+# Unknown
+/out/
+/classes/
+/file:/
