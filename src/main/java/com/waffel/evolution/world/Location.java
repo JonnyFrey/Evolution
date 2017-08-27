@@ -7,7 +7,7 @@ import javax.annotation.Nonnull;
 import java.util.Objects;
 
 /**
- * Created by Jonny on 8/23/2017.
+ * A Container class that holds positional information for whatever it's holding.
  */
 @EqualsAndHashCode
 @Getter
@@ -17,14 +17,38 @@ public class Location<E> implements Comparable<Location> {
     private final int col; // column location in grid
     private final E content;
 
+    /**
+     * New Location instance with no content
+     *
+     * @param row which row this is contained in
+     * @param col which column this is contained in
+     */
     public Location(final int row, final int col) {
         this(row, col, null);
     }
 
+    /**
+     * New Location instance
+     *
+     * @param row     which row this is contained in
+     * @param col     which column this is contained in
+     * @param content what content to hold that represents something in this location
+     */
     public Location(int row, int col, E content) {
         this.row = row;
         this.col = col;
         this.content = content;
+    }
+
+    /**
+     * Creates a copy of this location with content
+     *
+     * @param content to be added to the new location
+     * @param <T>     the type of content to be added
+     * @return a new location with the same position but new content
+     */
+    public <T> Location<T> withContent(T content) {
+        return new Location<T>(this.row, this.col, content);
     }
 
     /**
@@ -66,10 +90,16 @@ public class Location<E> implements Comparable<Location> {
         return String.format("(%d,%d)[%s]", this.row, this.col, this.content);
     }
 
+    /**
+     * @return if this location contains content
+     */
     public boolean isFilled() {
         return Objects.nonNull(this.getContent());
     }
 
+    /**
+     * @return if this location contains no content
+     */
     public boolean isEmpty() {
         return !isFilled();
     }

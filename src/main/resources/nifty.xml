@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nifty xmlns="http://nifty-gui.lessvoid.com/nifty-gui">
+    <!-- a simple screen -->
+    <screen id="start">
+    </screen>
+</nifty>
